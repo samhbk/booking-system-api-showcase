@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest an improvement to the API, docs, tests, or developer experience
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a portfolio reference API. Feature requests should stay aligned with demonstrating backend engineering skills (not full product scope).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What gap does this address?
+      placeholder: Recruiters cannot see how pagination filters work without reading code.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      placeholder: Add GET /admin/bookings filter examples to docs/API.md and a PHPUnit test.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: Document in README only vs full endpoint change.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Estimated scope
+      options:
+        - Documentation only
+        - Small code change (< 1 day)
+        - Larger change (needs design discussion)
+    validations:
+      required: true

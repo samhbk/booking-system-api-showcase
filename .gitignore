@@ -1,0 +1,60 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment & secrets (never commit)
+.env
+.env.*
+!.env.example
+.auth.json
+auth.json
+*.pem
+
+# PHP / Composer
+/vendor
+.phpunit.result.cache
+.phpunit.cache
+.phpactor.json
+
+# Node (Laravel Vite tooling)
+/node_modules
+/public/build
+/public/hot
+
+# Laravel runtime & generated
+/public/storage
+/storage/*.key
+/storage/pail
+/storage/api-docs/*
+!/storage/api-docs/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# IDE
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+*.code-workspace
+
+# Local tooling
+Homestead.json
+Homestead.yaml
+*.log
+
+# Test / coverage artifacts
+/coverage
+htmlcov/
+
+# Local SQLite databases
+/database/*.sqlite*
