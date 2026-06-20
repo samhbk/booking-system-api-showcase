@@ -32,6 +32,57 @@ Use it to evaluate API design, Laravel structure, and backend judgment — clone
 
 ---
 
+## Evaluate in 10 minutes
+
+### Run with Docker
+
+```bash
+git clone https://github.com/sameh-bakleh/booking-system-api-showcase.git
+cd booking-system-api-showcase
+cp .env.example .env
+docker compose up --build
+```
+
+The `app` container runs `composer install`, `php artisan migrate --force`, and `php artisan db:seed --force` on startup, then serves on port **8000**.
+
+| URL | Purpose |
+|-----|---------|
+| `http://localhost:8000/api/v1` | API base |
+| `http://localhost:8000/api/documentation` | Swagger UI (l5-swagger) |
+| `http://localhost:8000/up` | Health check |
+
+### Example requests
+
+```bash
+# Login (seeded user — password: password)
+curl -s -X POST http://localhost:8000/api/v1/auth/login \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"user@example.com","password":"password"}'
+
+# List bookable resources (Bearer token required)
+curl -s http://localhost:8000/api/v1/resources \
+  -H "Authorization: Bearer YOUR_TOKEN"
+
+# Day availability for resource id 1
+curl -s "http://localhost:8000/api/v1/resources/1/availability?date=2026-06-20" \
+  -H "Authorization: Bearer YOUR_TOKEN"
+```
+
+### API documentation
+
+Swagger UI: **http://localhost:8000/api/documentation** (generated from OpenAPI annotations via `php artisan l5-swagger:generate`). Endpoint reference: [`docs/API.md`](docs/API.md).
+
+### Tests
+
+```bash
+composer install
+composer test                 # 33 PHPUnit tests (SQLite in-memory)
+vendor/bin/pint --test        # Code style (runs in CI)
+php artisan l5-swagger:generate
+```
+
+---
+
 ## Features
 
 | Area | What is implemented |
@@ -191,20 +242,14 @@ Add captures under `docs/screenshots/` after running locally:
 
 ### Docker (fastest)
 
-See **[docs/DOCKER.md](docs/DOCKER.md)** for troubleshooting, queues, and production image notes.
+See **[Evaluate in 10 minutes](#evaluate-in-10-minutes)** and **[docs/DOCKER.md](docs/DOCKER.md)** for the full quickstart.
 
 ```bash
 cp .env.example .env
 docker compose up --build
 ```
 
-| URL | Purpose |
-|-----|---------|
-| `http://localhost:8000/api/v1` | API base |
-| `http://localhost:8000/api/documentation` | Swagger UI |
-| `http://localhost:8000/up` | Health check |
-
-Migrations and seeders run on startup.
+Migrations and seeders run on container startup.
 
 ### Native PHP
 
