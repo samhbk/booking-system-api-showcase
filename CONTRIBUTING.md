@@ -4,14 +4,14 @@ Thank you for your interest in this project. This repository is primarily a **po
 
 ## Before you start
 
-1. Search existing [issues](https://github.com/YOUR_USERNAME/booking-system-api-showcase/issues) to avoid duplicates.
+1. Search existing [issues](https://github.com/sameh-bakleh/booking-system-api-showcase/issues) to avoid duplicates.
 2. For large changes, open an issue first to discuss scope.
 3. Keep pull requests **focused** — one concern per PR when possible.
 
 ## Local setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/booking-system-api-showcase.git
+git clone https://github.com/sameh-bakleh/booking-system-api-showcase.git
 cd booking-system-api-showcase
 cp .env.example .env
 composer install

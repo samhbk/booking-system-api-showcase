@@ -6,7 +6,7 @@
 >
 > **Topics:** `laravel` · `php` · `booking-system` · `rest-api` · `jwt` · `redis` · `swagger` · `docker` · `backend` · `api-versioning` · `portfolio`
 
-[![CI](https://github.com/YOUR_USERNAME/booking-system-api-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/booking-system-api-showcase/actions/workflows/ci.yml)
+[![CI](https://github.com/sameh-bakleh/booking-system-api-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/sameh-bakleh/booking-system-api-showcase/actions/workflows/ci.yml)
 
 | | |
 |---|---|
@@ -261,7 +261,7 @@ Workflow: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
 | **Laravel** | `composer install` → Pint → PHPUnit → OpenAPI generate |
 | **Docker** | Production image build smoke test |
 
-Triggers on `push` / `pull_request` to `main` or `master`. Replace `YOUR_USERNAME` in the CI badge URL after publishing.
+Triggers on `push` / `pull_request` to `main` or `master`.
 
 ---
 
@@ -282,20 +282,9 @@ Interactive docs: **`/api/documentation`** (authorize with Bearer token from log
 
 - **No real user data** — all seeds use `@example.com` and documented demo passwords.
 - **Never commit** `.env`, JWT secrets, or `auth.json`. Use `.env.example` only.
-- **Local `.env`** is gitignored; export script excludes it from standalone copies.
+- **Local `.env`** is gitignored.
 - Docker Compose uses local-only credentials; override `JWT_SECRET` outside local dev.
 - Vulnerability reporting: [SECURITY.md](SECURITY.md)
-
----
-
-## Publishing to GitHub
-
-1. Ensure `.env` and `database/*.sqlite` are not tracked (`git status`).
-2. Replace `YOUR_USERNAME` in README badge and CONTRIBUTING clone URL.
-3. Set repository **description** and **topics** (see top of README).
-4. Push to `booking-system-api-showcase` and verify CI on `main`.
-
-From the parent monorepo, use `./scripts/export-standalone-repo.sh` to copy a clean tree without vendor or secrets.
 
 ---
 
@@ -304,20 +293,6 @@ From the parent monorepo, use `./scripts/export-standalone-repo.sh` to copy a cl
 This is a **backend API showcase**, not a mobile app or storefront. It is meant to complement client projects in a broader portfolio (e.g. iOS/Android apps consuming REST APIs).
 
 **Good evaluation path:** clone → `composer test` → open Swagger → create a booking → trigger a 409 overlap → skim `BookingService.php`.
-
-**Standalone publish:** `./scripts/export-standalone-repo.sh` → push to `booking-system-api-showcase`.
-
----
-
-## Future improvements
-
-Planned scope extensions (not required for portfolio review):
-
-- Pessimistic locking or DB constraint for high-concurrency overlap edge cases
-- Policy classes alongside service-level authorization
-- Postman/Bruno collection committed to `docs/`
-- Integration test job with MySQL + Redis services in CI
-- Optional PostgreSQL Compose profile
 
 ---
 

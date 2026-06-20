@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security vulnerability
-    url: https://github.com/YOUR_USERNAME/booking-system-api-showcase/security/policy
+    url: https://github.com/sameh-bakleh/booking-system-api-showcase/security/policy
     about: Report security issues privately (do not open a public bug report with exploit details).
